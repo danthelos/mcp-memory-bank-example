@@ -18,17 +18,17 @@
   <div id="game-over-overlay" role="dialog" aria-modal="true" aria-labelledby="game-over-title" hidden>
     <h2 id="game-over-title">Game Over</h2>
     <p>Final Score: <span id="final-score">0</span></p>
-    <button id="restart-btn" aria-label="Restart Game">Restart</button>
+    <button id="restart-btn" aria-label="Restart the game after game over">Restart</button>
   </div>
-  <div id="leaderboard-container">
+  <div id="leaderboard-container" aria-label="Leaderboard" tabindex="0">
     <h3>Leaderboard</h3>
-    <ol id="leaderboard-list"></ol>
+    <ol id="leaderboard-list" aria-label="Top 5 scores"></ol>
   </div>
   <div id="name-overlay" role="dialog" aria-modal="true" aria-labelledby="name-overlay-title" hidden>
     <h2 id="name-overlay-title">New High Score!</h2>
     <label for="player-name">Enter your name:</label>
-    <input id="player-name" maxlength="12" autocomplete="off" />
-    <button id="submit-name-btn">Submit</button>
+    <input id="player-name" maxlength="12" autocomplete="off" aria-label="Player name for leaderboard" />
+    <button id="submit-name-btn" aria-label="Submit your name for the leaderboard">Submit</button>
   </div>
   <script type="module" src="main.js"></script>
 </body>

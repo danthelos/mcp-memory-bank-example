@@ -6,6 +6,8 @@
 - Difficulty levels (easy, medium, hard) implemented and tested
 - UI and accessibility features in place
 - Application works in Chrome, Brave, and Edge browsers
+- App tested on different screen sizes – works fine
+- All interactive elements are keyboard-accessible
 
 ## What's Left to Build
 - Further user testing and browser compatibility checks (Safari)

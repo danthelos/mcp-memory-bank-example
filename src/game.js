@@ -3,6 +3,7 @@
 
 export const GRID_SIZE = 20;
 
+// Direction vectors for movement
 const DIRECTIONS = {
   ArrowUp: { x: 0, y: -1 },
   ArrowDown: { x: 0, y: 1 },
@@ -14,6 +15,7 @@ const DIRECTIONS = {
   d: { x: 1, y: 0 },
 };
 
+// Returns the initial snake (length 3, centered)
 function getInitialSnake() {
   const mid = Math.floor(GRID_SIZE / 2);
   return [
@@ -23,6 +25,7 @@ function getInitialSnake() {
   ];
 }
 
+// Returns a random empty cell not occupied by the snake
 function randomEmptyCell(snake) {
   let empty = [];
   for (let y = 0; y < GRID_SIZE; y++) {
@@ -35,6 +38,7 @@ function randomEmptyCell(snake) {
   return empty[Math.floor(Math.random() * empty.length)];
 }
 
+// Creates the initial game state
 export function createInitialState() {
   const snake = getInitialSnake();
   return {
@@ -44,13 +48,14 @@ export function createInitialState() {
     food: randomEmptyCell(snake),
     score: 0,
     gameOver: false,
+    paused: false,
   };
 }
 
+// Sets the next direction if valid (no 180° reversal)
 export function setDirection(state, dirKey) {
   if (!(dirKey in DIRECTIONS)) return;
   const newDir = DIRECTIONS[dirKey];
-  // Prevent 180° reversal
   if (
     state.direction.x + newDir.x === 0 &&
     state.direction.y + newDir.y === 0
@@ -60,15 +65,16 @@ export function setDirection(state, dirKey) {
   state.nextDirection = newDir;
 }
 
+// Advances the game state by one tick
 export function updateState(state) {
-  if (state.gameOver) return;
+  if (state.gameOver || state.paused) return;
   // Move snake
   const newDir = state.nextDirection;
   const newHead = {
     x: state.snake[0].x + newDir.x,
     y: state.snake[0].y + newDir.y,
   };
-  // Check wall collision
+  // Wall collision
   if (
     newHead.x < 0 || newHead.x >= GRID_SIZE ||
     newHead.y < 0 || newHead.y >= GRID_SIZE
@@ -76,14 +82,14 @@ export function updateState(state) {
     state.gameOver = true;
     return;
   }
-  // Check self collision
+  // Self collision
   if (state.snake.some(seg => seg.x === newHead.x && seg.y === newHead.y)) {
     state.gameOver = true;
     return;
   }
   // Move snake
   state.snake.unshift(newHead);
-  // Check food
+  // Food eaten
   if (newHead.x === state.food.x && newHead.y === state.food.y) {
     state.score++;
     state.food = randomEmptyCell(state.snake);
@@ -93,16 +99,25 @@ export function updateState(state) {
   state.direction = newDir;
 }
 
+// Resets the state object to a new game
 export function resetState(state) {
   const newState = createInitialState();
   Object.assign(state, newState);
 }
 
+// Returns the tick interval (ms) for a given difficulty
 export function getTickInterval(difficulty) {
   switch (difficulty) {
     case 'easy': return 250;
     case 'hard': return 80;
     case 'medium':
     default: return 150;
+  }
+}
+
+// Toggles the paused state (if not game over)
+export function togglePause(state) {
+  if (!state.gameOver) {
+    state.paused = !state.paused;
   }
 } 
