@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Snake Game (MVP)</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="score-container">Score: <span id="score">0</span></div>
+  <canvas id="game-canvas" tabindex="0" aria-label="Snake Game" width="400" height="400"></canvas>
+  <div id="game-over-overlay" role="dialog" aria-modal="true" aria-labelledby="game-over-title" hidden>
+    <h2 id="game-over-title">Game Over</h2>
+    <p>Final Score: <span id="final-score">0</span></p>
+    <button id="restart-btn" aria-label="Restart Game">Restart</button>
+  </div>
+  <script type="module" src="main.js"></script>
+</body>
+</html> 
