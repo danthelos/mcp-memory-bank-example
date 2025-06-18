@@ -1,26 +1,28 @@
 # Active Context: Browser-based Snake Game (MVP)
 
 ## Current Work Focus
-The MVP Snake Game app is now fully scaffolded and implemented in the src/ directory. The app is being served locally using Python's HTTP server at http://localhost:5173. All core modules (game logic, rendering, input, main entry) and UI are in place.
+Added a persistent leaderboard feature. After each game over, if the score qualifies for the top 5, the player is prompted for their name and the score is saved in browser localStorage. The leaderboard is displayed in the UI and updates automatically.
 
 ## Recent Changes
-- Implemented all MVP features in src/
-- Set up local static server for development
-- Game is accessible and playable in browser
+- Implemented leaderboard logic using localStorage
+- Added UI for leaderboard and name input overlay
+- Leaderboard displays top 5 scores (name + score)
 
 ## Next Steps
-- Test gameplay and fix any bugs
-- Ensure accessibility and browser compatibility
-- Polish UI and code as needed
+- Test leaderboard functionality across browsers
+- Gather feedback on UX and polish as needed
 
 ## Active Decisions and Considerations
-- Focus on MVP completeness and browser compatibility
-- Use Python HTTP server for local development
+- Leaderboard is limited to top 5 scores
+- Player is prompted for name only if score qualifies
+- Data is stored locally in the browser
 
 ## Important Patterns and Preferences
 - Modular ES6+ codebase
 - Clear separation of logic, rendering, and input
+- UI elements are accessible and keyboard-navigable
+- Persistent data via localStorage
 
 ## Learnings and Project Insights
-- Local static server is a simple, effective solution for browser-based games
-- Early modularization aids maintainability 
+- Leaderboard adds replay value and engagement
+- Using localStorage is a simple, effective way to persist scores client-side 

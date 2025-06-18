@@ -7,12 +7,28 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <label for="difficulty" id="difficulty-label">Difficulty:</label>
+  <select id="difficulty" aria-labelledby="difficulty-label">
+    <option value="easy">Easy</option>
+    <option value="medium" selected>Medium</option>
+    <option value="hard">Hard</option>
+  </select>
   <div id="score-container">Score: <span id="score">0</span></div>
   <canvas id="game-canvas" tabindex="0" aria-label="Snake Game" width="400" height="400"></canvas>
   <div id="game-over-overlay" role="dialog" aria-modal="true" aria-labelledby="game-over-title" hidden>
     <h2 id="game-over-title">Game Over</h2>
     <p>Final Score: <span id="final-score">0</span></p>
     <button id="restart-btn" aria-label="Restart Game">Restart</button>
+  </div>
+  <div id="leaderboard-container">
+    <h3>Leaderboard</h3>
+    <ol id="leaderboard-list"></ol>
+  </div>
+  <div id="name-overlay" role="dialog" aria-modal="true" aria-labelledby="name-overlay-title" hidden>
+    <h2 id="name-overlay-title">New High Score!</h2>
+    <label for="player-name">Enter your name:</label>
+    <input id="player-name" maxlength="12" autocomplete="off" />
+    <button id="submit-name-btn">Submit</button>
   </div>
   <script type="module" src="main.js"></script>
 </body>

@@ -2,7 +2,6 @@
 // Core game logic for Snake Game (MVP)
 
 export const GRID_SIZE = 20;
-export const TICK_INTERVAL = 150; // ms
 
 const DIRECTIONS = {
   ArrowUp: { x: 0, y: -1 },
@@ -97,4 +96,13 @@ export function updateState(state) {
 export function resetState(state) {
   const newState = createInitialState();
   Object.assign(state, newState);
+}
+
+export function getTickInterval(difficulty) {
+  switch (difficulty) {
+    case 'easy': return 250;
+    case 'hard': return 80;
+    case 'medium':
+    default: return 150;
+  }
 } 

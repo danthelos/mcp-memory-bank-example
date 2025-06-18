@@ -6,9 +6,9 @@
 - CSS3
 
 ## Development Setup
-- Modern browser (Chrome, Firefox, Edge, Safari)
+- Modern browser (Chrome, Brave, Edge, Safari)
 - Code editor (e.g., VS Code)
-- Local HTTP server for testing (optional)
+- Local HTTP server for testing (Python HTTP server)
 
 ## Technical Constraints
 - Must run smoothly in latest two major versions of target browsers
@@ -20,4 +20,5 @@
 
 ## Tool Usage Patterns
 - Use ES6+ modules to separate logic, rendering, and input
-- Inline documentation for maintainability 
+- Inline documentation for maintainability
+- Difficulty selector in UI for user-adjustable game speed 

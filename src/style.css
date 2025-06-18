@@ -47,4 +47,60 @@ body {
 }
 #restart-btn:focus {
   outline: 2px solid #fff;
+}
+#leaderboard-container {
+  margin-top: 2rem;
+  background: #181818;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px #0008;
+  width: 100%;
+  max-width: 400px;
+}
+#leaderboard-container h3 {
+  margin-top: 0;
+  text-align: center;
+}
+#leaderboard-list {
+  list-style: decimal inside;
+  padding: 0;
+  margin: 0;
+}
+#leaderboard-list li {
+  font-size: 1.1rem;
+  margin: 0.2rem 0;
+  display: flex;
+  justify-content: space-between;
+}
+#name-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.85);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 20;
+}
+#name-overlay[hidden] {
+  display: none;
+}
+#player-name {
+  font-size: 1.2rem;
+  margin: 0.5rem 0;
+  padding: 0.3rem 0.7rem;
+  border-radius: 4px;
+  border: 1px solid #888;
+}
+#submit-name-btn {
+  font-size: 1.1rem;
+  padding: 0.4rem 1.2rem;
+  border: none;
+  border-radius: 4px;
+  background: #2196f3;
+  color: #fff;
+  cursor: pointer;
+}
+#submit-name-btn:focus {
+  outline: 2px solid #fff;
 } 
